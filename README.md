@@ -6,11 +6,11 @@ Movie Detail 페이지 디자인 -> 네이버영화 참고
 
 
 # 추가예정
-무한스크롤 or 페이지네이션
-ToWatchList
-찜(ToWatchList에서 볼 수 있음)
-Loading Circle
-내 소개 페이지
+ 무한스크롤 or 페이지네이션
+ ToWatchList
+ 찜(ToWatchList에서 볼 수 있음)
+ Loading Circle
+ 내 소개 페이지
 
 
 
