@@ -4,6 +4,7 @@ import Home from './routes/Home'
 import {BrowserRouter, Route} from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Detail from './routes/Detail'
+import ToWatchList from './routes/ToWatchList'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route path = '/' exact={true} component={Home} /> 
       <Route path='/about' component={About}/>
       <Route path='/movie/:id' component={Detail} />
+      <Route path='towatchlist' component={ToWatchList}/>
     </BrowserRouter>
   )
 }

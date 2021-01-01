@@ -3,22 +3,18 @@ import axios from "axios";
 import Movie from "../components/Movie";
 import "./Home.css";
 
+const API_KEY = '3e7a66c4d6dbae8f867aa285509a095d'
 function Home() {
   const [movies, setMovies] = useState(null);
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const {
-          data: {
-            data: { movies },
-          },
-        } = await axios.get(
-          "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
         );
-        setMovies(movies);
+        setMovies(response.data.results);
       } catch (e) {
         console.error(e);
       }
@@ -40,16 +36,16 @@ function Home() {
 
   return (
     <section className="container">
+      {console.log(movies)}
       <div className="movies">
         {movies.map((movie) => (
           <Movie
             key={movie.id}
             id={movie.id}
-            year={movie.year}
+            year={movie.release_date}
             title={movie.title}
-            summary={movie.summary}
-            poster={movie.medium_cover_image}
-            genres={movie.genres}
+            summary={movie.overview}
+            poster={movie.poster_path}
           />
         ))}
       </div>

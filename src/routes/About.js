@@ -4,7 +4,7 @@ const About = (props) => {
      console.log(props )
     return (
         <div>
-            ABOUT
+            About....
         </div>
     )
 }

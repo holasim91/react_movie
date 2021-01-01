@@ -7,6 +7,7 @@ const Navigation = () => {
             {/* a태그는 전체를 리프레시한다 */}
             <Link to="/">Home</Link>
             <Link to='about'>About</Link>
+            <Link to='towatchlist'>toWatchList</Link>
         </div>
     )
 }
