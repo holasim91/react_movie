@@ -35,7 +35,6 @@ function Home() {
     );
   }
   if (!movies) {
-    console.log('데이터 없는디;')
     return null;
   }
 
