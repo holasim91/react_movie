@@ -13,7 +13,7 @@ const App = () => {
       <Route path = {['/','/react_movie']} component={Home} exact={true} /> 
       <Route path='/about' component={About}/>
       <Route path='/movie/:id' component={Detail} />
-      <Route path='towatchlist' component={ToWatchList}/>
+      <Route path='/towatchlist' component={ToWatchList}/>
     </BrowserRouter>
   )
 }

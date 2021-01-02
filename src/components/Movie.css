@@ -57,3 +57,13 @@
     margin-right: 10px;
     font-size: 14px;
   }
+
+.movie__watchlist{
+  float: right;
+  padding-right: 5px;
+}
+
+.movie__watchlist svg:hover{
+  color: #e84393;
+  cursor: pointer;
+}

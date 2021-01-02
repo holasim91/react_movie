@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import {MdStars} from 'react-icons/md'
 import "./Movie.css";
+
 
 const Movie = ({ id, year, title, summary, poster }) => {
   const full_poster = `https://image.tmdb.org/t/p/w500${poster}`
@@ -26,6 +28,7 @@ const Movie = ({ id, year, title, summary, poster }) => {
           <p className="movie__summary">{summary.slice(0, 180)}...</p>
         </div>
       </Link>
+          <div className="movie__watchlist">Add toWatchList: <MdStars onClick={()=>{alert('Add toWatchList')}} /></div> 
     </div>
   );
 };

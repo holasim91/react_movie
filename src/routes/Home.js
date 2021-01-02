@@ -27,6 +27,7 @@ function Home() {
     fetchData();
   }, []);
 
+
   if (loading) {
     return (
       <div className="loader">
@@ -37,6 +38,8 @@ function Home() {
   if (!movies) {
     return null;
   }
+
+  console.log(movies)
 
   return (
     <section className="container">
