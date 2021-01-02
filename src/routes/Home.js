@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import dotenv from 'dotenv'
 import Movie from "../components/Movie";
 import "./Home.css";
 
-const API_KEY = '3e7a66c4d6dbae8f867aa285509a095d'
+dotenv.config()
+
+const API_KEY = process.env.REACT_APP_API_KEY
+
 function Home() {
   const [movies, setMovies] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -31,12 +35,12 @@ function Home() {
     );
   }
   if (!movies) {
+    console.log('데이터 없는디;')
     return null;
   }
 
   return (
     <section className="container">
-      {console.log(movies)}
       <div className="movies">
         {movies.map((movie) => (
           <Movie

@@ -10,7 +10,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navigation />
-      <Route path = '/' exact={true} component={Home} /> 
+      <Route path = {['/','/react_movie']} component={Home} exact={true} /> 
       <Route path='/about' component={About}/>
       <Route path='/movie/:id' component={Detail} />
       <Route path='towatchlist' component={ToWatchList}/>
