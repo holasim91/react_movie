@@ -17,6 +17,7 @@
  6. Detail 디자인
  7. CSS ->  Styled-Components로 이식
  8. 반응형
+ 9. Detail 속 comment
 
 
 
