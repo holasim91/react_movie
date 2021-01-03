@@ -5,17 +5,20 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Detail from './routes/Detail'
 import ToWatchList from './routes/ToWatchList'
+import { ToWatchProvider } from './toWatchContext'
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navigation />
-      <Route path = {['/','/react_movie']} component={Home} exact={true} /> 
-      <Route path='/about' component={About}/>
-      <Route path='/movie/:id' component={Detail} />
-      <Route path='/towatchlist' component={ToWatchList}/>
-    </BrowserRouter>
-  )
+    <ToWatchProvider>
+      <BrowserRouter> 
+        <Navigation />
+        <Route path={["/", "/react_movie"]} component={Home} exact={true} />
+        <Route path="/about" component={About} />
+        <Route path="/movie/:id" component={Detail} />
+        <Route path="/towatchlist" component={ToWatchList} />
+      </BrowserRouter>
+      </ToWatchProvider>
+  );
 }
 
 export default App

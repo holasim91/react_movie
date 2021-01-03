@@ -1,24 +1,29 @@
 import React from 'react'
+import styled from 'styled-components'
 import ToWatchItem from '../components/ToWatchItem'
-import './ToWatchList.css'
-import { movieData } from "../movieData";
+import ToWatchTemplate from '../components/ToWatchTemplate'
+import ToWatchHead from '../components/ToWatchHead';
+import { useWatchState } from '../toWatchContext'
+
+const ToWatchListBlock = styled.div`
+  flex: 1; /* 자신이 차지할 수 있는 영역을 꽉 채움 */
+  padding: 20px 32px;
+  padding-bottom: 48px;
+  overflow-y: auto;
+
+`
+
 
 
 const ToWatchList = () => {
-    const watched = movieData.filter(m => m.isWatch === false).length
+  const towatches = useWatchState()
     return (
-      <>
-        <div className="ToWatchTemplateBlock">
-          <div className="ToWatchHeadBlock">
-            <h1>ToWatch List</h1>
-            <div className="day">2021-01-02</div>
-            <div className="task-left">{`볼 영화 ${watched}개 남음`}</div>
-          </div>
-          <div className="ToWatchListBlock">
-                {movieData.map(m=> <ToWatchItem text={m.title} done={m.isWatch} key={m.id}/>)}
-          </div>
-        </div>
-      </>
+          <ToWatchTemplate >
+          <ToWatchListBlock>
+            <ToWatchHead/>
+            {towatches.map(w => <ToWatchItem key={w.id} id={w.id} watched={w.isWatched} title={w.title}/>)}
+          </ToWatchListBlock>
+        </ToWatchTemplate>
     );
 }
 

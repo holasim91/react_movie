@@ -7,6 +7,7 @@ import "./Movie.css";
 
 const Movie = ({ id, year, title, summary, poster }) => {
   const full_poster = `https://image.tmdb.org/t/p/w500${poster}`
+  const onAdd = () =>{alert('Added!')} 
   return (
     <div className="movie">
       <Link
@@ -28,14 +29,14 @@ const Movie = ({ id, year, title, summary, poster }) => {
           <p className="movie__summary">{summary.slice(0, 180)}...</p>
         </div>
       </Link>
-          <div className="movie__watchlist">Add toWatchList: <MdStars onClick={()=>{alert('Add toWatchList')}} /></div> 
+          <div className="movie__watchlist">Add toWatchList: <MdStars onClick={onAdd} /></div> 
     </div>
   );
 };
 
 Movie.propTypes = {
   id: PropTypes.number.isRequired,
-  year: PropTypes.number.isRequired,
+  year: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,

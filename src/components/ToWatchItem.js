@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
+import { useWatchDispatch } from '../toWatchContext';
+
 
 
 const Remove = styled.div`
@@ -40,7 +42,7 @@ const CheckCircle = styled.div`
   margin-right: 20px;
   cursor: pointer;
   ${props =>
-    props.done &&
+    props.watched &&
     css`
       border: 1px solid #38d9a9;
       color: #38d9a9;
@@ -52,22 +54,26 @@ const Text = styled.div`
   font-size: 21px;
   color: #495057;
   ${props =>
-    props.done &&
+    props.watched &&
     css`
       color: #ced4da;
     `}
 `;
 
 
-const ToWatchItem = ({id, done, text}) => {
+const ToWatchItem = ({id, watched, title}) => {
+  const dispatch = useWatchDispatch();
+  const onToggle = () => dispatch({type:'TOGGLE', id})
+  const onRemove = () => dispatch({type:'REMOVE', id})
+
     return (
         <ToWatchItemBlock>
-        <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
-        <Text done={done}>{text}</Text>
-        <Remove>
+        <CheckCircle  watched={watched} onClick={onToggle}>{watched && <MdDone />}</CheckCircle>
+        <Text watched={watched}>{title}</Text>
+        <Remove onClick={onRemove}>
           <MdDelete />
         </Remove>
       </ToWatchItemBlock>    )
 }
 
-export default ToWatchItem
+export default React.memo(ToWatchItem)
